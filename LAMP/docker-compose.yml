@@ -1,0 +1,21 @@
+    
+version: '3'
+services:
+  mysql:
+    build: ./mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    volumes:
+      - db:/var/lib/mysql
+  php:
+    build: ./php
+    restart: always
+    ports:
+      - '8080:80'
+    volumes:
+      - ./www/html:/var/www/html
+    depends_on:
+      - mysql
+volumes:
+  db:
