@@ -7,6 +7,6 @@ ENV APACHE_LOG_DIR /var/log/apache2
 
 COPY ./php.ini /usr/local/etc/php/
 COPY ./index.php /var/www/html
-COPY ./index2.php /var/www/html
+COPY ./index_comfirm.php /var/www/html
 
 RUN apt-get update

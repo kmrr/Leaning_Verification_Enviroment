@@ -6,10 +6,11 @@
     <title>シナリオ3</title>
 </head>
 <body>
-    <?php
-            $last_line = system($_GET["command"], $retval); 
-            echo $last_line;
-            echo $retval;
+    <?php 
+        $url = $_GET["url"];
+
+        header('Location: '.$url);
+        exit;
     ?>
 </body>
 </html>

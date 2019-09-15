@@ -6,11 +6,14 @@
     <title>シナリオ3</title>
 </head>
 <body>
-    <?php 
+    <?php
         $url = $_GET["url"];
-
-        header('Location: '.$url);
-        exit;
+	if(preg_match('/^https?\:\/\/192.168.99.100\//u', $url)){
+	    header('Location: '.$url);
+	}else{
+            echo "Invalid Origin!";
+            exit;
+	}
     ?>
 </body>
 </html>
