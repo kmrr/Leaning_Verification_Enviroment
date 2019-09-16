@@ -1,5 +1,5 @@
-version: '3'
-
+version: "3"
+    
 services:
   php:
     build: ./php
@@ -11,28 +11,22 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - db
-  db:
-    image: mysql:5.7
-    container_name: mysql_host
+      - mysql
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=TEST
+      - MYSQL_USER=User
+      - MYSQL_PASSWORD=12345678
+      - TZ='Asia/Tokyo'
+    ports:
+      - 13306:3306
     networks:
       app_net:
         ipv4_address: 172.30.0.2
-    ports:
-      - 13306:3306
     volumes:
-      - ./db/data:/var/lib/mysql
-      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./db/sql:/docker-entrypoint-initdb.d
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: TEST
-      MYSQL_USER: User
-      MYSQL_PASSWORD: 12345678
-      TZ: 'Asia/Tokyo'
-    command:
-      bash -c "mysqld --user=root && chmod 644 /etc/mysql/conf.d/my.cnf"
-    user: "1000:50"
+      - ./initdb.d:/docker-entrypoint-initdb.d
 
 networks:
   app_net:

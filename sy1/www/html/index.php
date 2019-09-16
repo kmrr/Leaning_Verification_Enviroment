@@ -29,7 +29,7 @@
                 <td>名前</td>
             </tr>
             <?php
-                $sql = 'select * from TEST where name = "'.$word.'"';
+                $sql = 'select * from store_info where name = "'.$word.'"';
 
                 $result = $link->query($sql);
                 if(!$result){
@@ -46,6 +46,7 @@
                     echo "<tr>";
                     echo "    <td>".$row['id']."</td>";
                     echo "    <td>".$row['name']."</td>";
+                    echo "    <td>".$row['store_count']."</td>";
                     echo "</tr>";
                 }
             ?>

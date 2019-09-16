@@ -34,12 +34,13 @@
                 if($stmt = $mysqli->prepare($sql)){
                     $stmt->bind_param("s", $word);
                     $stmt->execute();   
-                    $stmt->bind_result($id, $name);
+                    $stmt->bind_result($id, $name, $count);
 
                     while($$stmt->fetch()){
                         echo "<tr>";
                         echo "    <td>".$id."</td>";
                         echo "    <td>".$name."</td>";
+                        echo "    <td>".$count."</td>";
                         echo "</tr>";
                     }
                 }
